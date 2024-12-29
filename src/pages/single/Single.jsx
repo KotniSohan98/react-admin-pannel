@@ -1,5 +1,7 @@
+import Chart from "../../components/chart/Chart";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
+import BasicTable from "../../components/table/BasicTable";
 import "./single.scss";
 
 const Single = () => {
@@ -41,9 +43,14 @@ const Single = () => {
               </div>
             </div>
           </div>
-          <div className="right"></div>
+          <div className="right">
+            <Chart aspect={3 / 1} title="User Spendings (Last 6 Months)" />
+          </div>
         </div>
-        <div className="bottom"></div>
+        <div className="bottom">
+          <h1 className="title">Last Transactions</h1>
+          <BasicTable />
+        </div>
       </div>
     </div>
   );
