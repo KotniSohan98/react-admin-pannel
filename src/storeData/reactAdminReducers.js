@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   transactionList: [],
+  revenueData: [],
 };
 
 const reactAdminReducers = (state = INITIAL_STATE, action) => {
@@ -8,6 +9,12 @@ const reactAdminReducers = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         transactionList: action.payload,
+      };
+
+    case "FETCH_REVENUE_DATA_SUCCESS":
+      return {
+        ...state,
+        revenueData: action.payload,
       };
     default:
       return state;

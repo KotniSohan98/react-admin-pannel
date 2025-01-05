@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import "./chart.scss";
 import {
   AreaChart,
@@ -54,16 +55,17 @@ import {
 //   },
 // ];
 
-const data = [
-  { name: "January", Total: 1200 },
-  { name: "Febuary", Total: 2100 },
-  { name: "March", Total: 800 },
-  { name: "April", Total: 1600 },
-  { name: "May", Total: 900 },
-  { name: "June", Total: 1700 },
-];
+// const data = [
+//   { name: "January", Total: 1200 },
+//   { name: "Febuary", Total: 2100 },
+//   { name: "March", Total: 800 },
+//   { name: "April", Total: 1600 },
+//   { name: "May", Total: 900 },
+//   { name: "June", Total: 1700 },
+// ];
 
 const Chart = ({ aspect, title }) => {
+  const data = useSelector((state) => state.revenueData);
   return (
     <div className="chart">
       <div className="title">{title}</div>

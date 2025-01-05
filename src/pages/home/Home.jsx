@@ -8,13 +8,17 @@ import Chart from "../../components/chart/Chart";
 import BasicTable from "../../components/table/BasicTable";
 
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTransactionList } from "../../storeData/reactAdminActions";
+import {
+  fetchRevenueData,
+  fetchTransactionList,
+} from "../../storeData/reactAdminActions";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactionList());
+    dispatch(fetchRevenueData());
   }, []);
 
   return (
