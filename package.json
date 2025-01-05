@@ -9,6 +9,7 @@
     "@mui/material": "^6.2.1",
     "@mui/x-data-grid": "^5.5.1",
     "cra-template": "1.2.0",
+    "json-server": "^1.0.0-alpha.23",
     "react": "^19.0.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^19.0.0",
@@ -22,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve-json": "json-server --watch db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [
