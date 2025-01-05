@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -7,7 +7,16 @@ import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import BasicTable from "../../components/table/BasicTable";
 
+import { useSelector, useDispatch } from "react-redux";
+import { fetchTransactionList } from "../../storeData/reactAdminActions";
+
 const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactionList());
+  }, []);
+
   return (
     <div className="home">
       <Sidebar />
