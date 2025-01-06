@@ -26,7 +26,9 @@ export const fetchTransactionList = () => {
       const data = response.data;
       console.log(data);
       //   setRows(data);
-      dispatch(fetchTransactionListSuccess(data));
+      if (Array.isArray(data) && data) {
+        dispatch(fetchTransactionListSuccess(data));
+      }
     } catch (error) {
       console.log(error);
       console.log(error.message);
@@ -41,7 +43,9 @@ export const fetchRevenueData = () => {
       const data = response.data;
       console.log(data);
       //   setRows(data);
-      dispatch(fetchRevenueDataSuccess(data));
+      if (Array.isArray(data) && data) {
+        dispatch(fetchRevenueDataSuccess(data));
+      }
     } catch (error) {
       console.log(error);
       console.log(error.message);
