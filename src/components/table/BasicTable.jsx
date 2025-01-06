@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Logger } from "sass";
 import { useSelector } from "react-redux";
+import TablePagination from "@mui/material/TablePagination";
 
 const BasicTable = () => {
   // const [rows, setRows] = useState([]);
@@ -120,6 +121,14 @@ const BasicTable = () => {
           ))}
         </TableBody>
       </Table>
+      <TablePagination
+        component="div"
+        count={100}
+        // page={page}
+        // onPageChange={handleChangePage}
+        // rowsPerPage={rowsPerPage}
+        // onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </TableContainer>
   );
 };
