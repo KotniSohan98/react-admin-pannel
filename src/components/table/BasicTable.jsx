@@ -34,6 +34,20 @@ const BasicTable = () => {
   const rows = useSelector((state) => state.transactionList);
   console.log(rows);
 
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerChange] = useState(5);
+
+  const handleChangePage = (event, newPage) => {
+    console.log(newPage);
+
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerChange(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   // const rows = [
   //   {
   //     id: 1143155,
@@ -101,33 +115,37 @@ const BasicTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell className="tableCell">{row.id}</TableCell>
-              <TableCell className="tableCell">
-                <div className="cellWrapper">
-                  <img src={row.img} alt="" className="image" />
-                  {row.product}
-                </div>
-              </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
-              <TableCell className="tableCell">{row.date}</TableCell>
-              <TableCell className="tableCell">{row.amount}</TableCell>
-              <TableCell className="tableCell">{row.method}</TableCell>
-              <TableCell className="tableCell">
-                <span className={`status ${row.status}`}>{row.status}</span>
-              </TableCell>
-            </TableRow>
-          ))}
+          {rows !== null &&
+            rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell className="tableCell">{row.id}</TableCell>
+                  <TableCell className="tableCell">
+                    <div className="cellWrapper">
+                      <img src={row.img} alt="" className="image" />
+                      {row.product}
+                    </div>
+                  </TableCell>
+                  <TableCell className="tableCell">{row.customer}</TableCell>
+                  <TableCell className="tableCell">{row.date}</TableCell>
+                  <TableCell className="tableCell">{row.amount}</TableCell>
+                  <TableCell className="tableCell">{row.method}</TableCell>
+                  <TableCell className="tableCell">
+                    <span className={`status ${row.status}`}>{row.status}</span>
+                  </TableCell>
+                </TableRow>
+              ))}
         </TableBody>
       </Table>
       <TablePagination
         component="div"
-        count={100}
-        // page={page}
-        // onPageChange={handleChangePage}
-        // rowsPerPage={rowsPerPage}
-        // onRowsPerPageChange={handleChangeRowsPerPage}
+        count={rows.length}
+        page={page}
+        onPageChange={handleChangePage}
+        rowsPerPage={rowsPerPage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        rowsPerPageOptions={[5, 10]}
       />
     </TableContainer>
   );
