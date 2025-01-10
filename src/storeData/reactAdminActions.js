@@ -22,7 +22,10 @@ export const fetchRevenueDataSuccess = (data) => {
 export const fetchTransactionList = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:5000/rows/");
+      //   const response = await axios.get("http://localhost:5000/rows/");
+      const response = await axios.get(
+        "https://react-admin-pannel.onrender.com/rows"
+      );
       const data = response.data;
       console.log(data);
       //   setRows(data);
@@ -39,7 +42,10 @@ export const fetchTransactionList = () => {
 export const fetchRevenueData = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:5000/revenue/");
+      //   const response = await axios.get("http://localhost:5000/revenue/");
+      const response = await axios.get(
+        "https://react-admin-pannel.onrender.com/revenue/"
+      );
       const data = response.data;
       console.log(data);
       //   setRows(data);
